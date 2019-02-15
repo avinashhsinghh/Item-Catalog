@@ -1,0 +1,145 @@
+body {
+    overflow-x: hidden;
+}
+
+.main {
+    height: 700px;
+    margin-top: -20px;
+    background: url("../images.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.main .container {
+    padding-top: 20px;
+}
+
+.intro {
+    text-align: center;
+    color: gray;
+}
+.intro h1 h2 {
+    font-family: "Raleway", sans-serif;
+}
+.intro h2 {
+    margin-bottom: 80px;
+}
+
+.btn-main {
+    background-color: #333;
+    color: #fff;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 1.3px;
+    padding: 16px 40px;
+    text-decoration: none;
+
+}
+.btn-main:hover {
+    text-decoration: none;
+    background-color: #808080;
+    color: #fff;
+}
+
+.supporting {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    padding-bottom: 100px;
+}
+.supporting h2 {
+    font-weight: 600;
+    font-size: 23px;
+}
+.supporting p {
+    margin-bottom: 40px;
+}
+.supporting .btn-support {
+    text-decoration: none;
+    padding: 12px 50px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #333;
+}
+.supporting .col-md-4 {
+    margin-bottom: 40px;
+}
+
+.team-info {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    background-color: #ffffff;
+    padding-top: 20px;
+    padding-bottom: 100px;
+}
+.team-info h2, .supporting .support-heading, .contact-form h2, .samples h2 {
+    font-weight: 800;
+    font-size: 32px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    color: #646e83;
+}
+.team-info img {
+    margin: auto;
+}
+
+.supporting i, .supporting h2 {
+    color: #DC143C;
+}
+.supporting p {
+    color: #808080;
+}
+.supporting a:hover {
+    background-color: #CD5C5C;
+    color: #fff;
+}
+
+.samples {
+    font-family: 'Raleway', sans-serif;
+    background-color: #d3d3d3;
+    padding-bottom: 100px;
+}
+.samples img {
+    display: inline-block;
+}
+.work-container {
+    margin: auto;
+}
+
+@media (min-width: 750px) {
+    .samples img {
+        width: 24%;
+    }
+}
+
+.contact-form {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 100px;
+    background-color: #778899;
+}
+.contact-form .btn {
+    background-color: #ff4d00;
+    color: #fff;
+    width: 300px;
+}
+
+footer {
+    background-color: #fafafa;
+    color: #000;
+    padding-top: 30px;
+}
+footer .col-md-3 {
+    padding-bottom: 20px;
+}
+.posts a {
+    color: black;
+}
+.posts a:hover {
+    text-decoration: none;
+}
+.tags button {
+    margin-top: 10px;
+}

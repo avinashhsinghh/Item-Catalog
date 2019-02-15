@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-3">
+                <br>
+                {% if item.image == '' %}
+                    <img src={{url_for('static', filename="img_not_available.png")}} alt="{{item.name}} Image" class="img-responsive img-rounded" >
+                {% else %}
+                    <img src={{item.image}} alt="{{item.name}} Image" class="img-responsive img-rounded" >
+                {% endif %}
+                <a href="{{url_for('editImage', category_name=item.category.name, item_name=item.name)}}">Change Image</a>
+            </div>
+            <div class="col-md-9">
+                <h2>{{item.name}}</h2>
+                <p>{{item.description}}</p>
+                <a href="{{url_for('editItem', category_name=item.category.name, item_name=item.name)}}">Edit |</a>
+                <a href="{{url_for('deleteItem', category_name=item.category.name, item_name=item.name)}}">Delete</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

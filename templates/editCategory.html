@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-6">
+        <form method="post">
+            <h2>Editing Category {{category.name}}</h2>
+            <label for="name">Name:</label>
+            <input type="text" maxlength="50" class="form-control" id="name" name="name" required
+                               value="{{category.name}}">
+            <br>
+            <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-ok">Save</span>
+            </button>
+            <a href="{{url_for('showHome')}}">
+                <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-remove">Cancel</span>
+                </button>
+            </a>
+        </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

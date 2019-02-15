@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+    <!--HTML tag to create a about page-->
+    <div class="jumbotron">
+        <h1>About</h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="/static/aboutus.png" class="img-responsive">
+            </div>
+            <div class="col-md-9">
+                <p>
+                This Catalog Web Application provides a list of items within a variety of categories and integrate third party user registration and authentication. Authenticated users should have the ability to post, edit, and delete their own items.
+                </p>
+                <p>
+                This application was built with HTML5, CSS, Bootstrap, Flask, SQLAlchemy, Google and Facebook Oauth2 & APIs.</p>
+                <p>
+                Source code can be found here:
+                <a href="https://github.com/avi1245/FSND_item_catalog">https://github.com/avi1245/FSND_item_catalog</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

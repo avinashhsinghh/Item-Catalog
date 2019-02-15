@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-6">
+        <form method="post">
+            <h2>Create New Category</h2>
+            <input type="text" maxlength="50" class="form-control" id="name" name="name" required
+                               placeholder="Name of Category">
+            <br>
+            <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-pencil">Create</span>
+            </button>
+            <a href="{{url_for('showHome')}}">
+                <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-remove">Cancel</span>
+                </button>
+            </a>
+        </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

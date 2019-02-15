@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class="jumbotron">
+        <h2>Deleting Category</h2>
+        <p>Are you sure you want to delete {{category.name}}?</p>
+        <form method="post">
+            <button type="submit">
+                <span class="glyphicon glyphicon-trash">Delete</span>
+            </button>
+            <a href="{{url_for('showHome')}}">
+                <button type="button">
+                    <span class="glyphicon glyphicon-remove">Cancel</span>
+                </button>
+            </a>
+        </form>
+    </div>
+
+{% endblock %}

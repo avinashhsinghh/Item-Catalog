@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class="jumbotron">
+        <form method="post">
+            <h2>Do you want to delete {{item.name}} image?</h2>
+            <button type="submit" class="btn btn-default">Delete</button>
+            <a href="{{url_for('showItem', category_name=item.category.name, item_name=item.name)}}">
+                <button type="button" class="btn btn-default">Cancel</button>
+            </a>
+        </form>
+    </div>
+
+{% endblock %}

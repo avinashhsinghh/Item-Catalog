@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catalog App - Web App to create Catalog</title>
+    <meta name="author" content="Avinash Kumar">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400, 600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/css1/style.css">
+    <link rel="stylesheet" href="../static/css1/animate.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/409e734741.js"></script>
+
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico">
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+</head>
+<body>
+  {% block content %}
+  {% include "header.html" %}
+    <div class="main">
+        <div class="container">
+            <div class="intro" style="margin-top:180px;">
+                <h1>Welcome to Catalog App</h1>
+                <hr>
+                <h3>Are you ready to explore awesome categories, or even greater, create one of your own?</h3><br>
+                <a class="btn-main" href="/catalog">GET STARTED</a>
+            </div>
+        </div>
+    </div>
+    
+    {% endblock %}
+  </body>
+  </html>

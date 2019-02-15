@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class = 'row row-offcanvas flash'>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                         <li> <strong> {{ message }} </strong> </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div><br>
+
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Categories</p>
+            <div class="list-group">
+                {% for category in categories %}
+                    <a href="{{url_for('showCategoryItems', category_name=category.name)}}" class="list-group-item">{{category
+                        .name}}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="no-margin">Latest Items</h2>
+                    </div>
+                </div>
+                <hr>
+                <div class="row is-flex">
+                    {% for item in items %}
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                {% if item.image == '' %}
+                                    <img src={{url_for('static', filename="img_not_available.png")}}>
+                                {% else %}
+                                    <img src="{{item.image}}" alt="{{item.name}} Image">
+                                {% endif %}
+                                <h4 class="text-center">{{item.name}}</h4>
+                                <div class="text-center">
+                                <p><a class="btn btn-default" href="{{url_for('showItem', category_name=item.category.name, item_name=item.name)}}" role="button">View details &raquo;</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

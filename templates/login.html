@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="signinButton" class="col-md-4 col-md-offset-4 well text-center">
+                <h2>Catalog App</h2>
+                <p class="lead">Please login to create awesome categories and items of your own!</p>
+                <hr>
+                <div class="row">
+                    <div class="col-md-11 col-xs-6"><p>Login with Google</p></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11 col-xs-6">
+                        <span class="g-signin"
+                              data-scope="openid email"
+                              data-clientid="893690353262-03nsmpldd9dsa2bkko604hgnbsjdifut.apps.googleusercontent.com"
+                              data-redirecturi="postmessage"
+                              data-accesstype="offline"
+                              data-cookiepolicy="single_host_origin"
+                              data-callback="signInCallBack"
+                              data-approvalprompt="force">
+                        </span>
+                    </div>
+                 </div>
+            </div>
+
+        </div>
+            <div id="result" class="col-md-4 col-md-offset-4 text-center"></div>
+    </div>
+
+    <!--Implement Google Log-in-->
+    <script>
+        function signInCallBack (authResult) {
+            if (authResult['code']) {
+                //Hide the sign-in button now that the user is authorized
+                $('#signinButton').attr('style', 'display: none');
+                //Send the one-time code to the server, if the server responds, write a 'login successful message to the web page and the redirect back to the home page
+                $.ajax({
+                    type: 'POST',
+                    url: '/gconnect?state={{STATE}}',
+                    processData: false,
+                    contentType: 'application/octet-stream; charset=utf-8',
+                    data: authResult['code'],
+                    success: function (result) {
+                        if (result) {
+                            $('#result').html('Login Successful!</br>'+ result +'</br>Redirecting...')
+                            setTimeout(function() {
+                                window.location.href = "/catalog";
+                            }, 2000);
+                        } else if (authResult['error']) {
+                            console.log('There was an error: ' + authResult['error']);
+                        } else {
+                            $('#result').html('Failed to make a server-side call. Check your configuration and console.');
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>

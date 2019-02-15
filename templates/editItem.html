@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-6">
+                <form method="post">
+                    <div class="form-group row">
+                        <h2>Editing {{item.name}}</h2>
+                        <label for="name" class="col">Title:</label>
+                        <input type="text" maxlength="50" class="form-control" id="name" name="name" required
+                               value="{{item.name}}">
+                        <br>
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" maxlength="1000" rows="5" id="description" name="description">
+                            {{item.description}}
+                        </textarea>
+                        <br>
+                        <label for="category">Category:</label>
+                        <select class="form-control" id="category" name="category">
+                            {% for category in categories %}
+                                {% if category.name == editingItemCategory.name %}
+                                    <option selected>{{category.name}}</option>
+                                {% else %}
+                                    <option>{{category.name}}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <br>
+                        <button type="submit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-ok">Save</span>
+                        </button>
+                        <a href="{{url_for('showItem', category_name=item.category.name, item_name=item.name)}}">
+                            <button type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-remove">Cancel</span>
+                            </button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

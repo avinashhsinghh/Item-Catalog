@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-3">
+                {% if item.image == '' %}
+                    <img src={{url_for('static', filename="img_not_available.png")}} alt="{{item.name}} Image" class="img-responsive img-rounded" >
+                {% else %}
+                    <img src={{item.image}} alt="{{item.name}} Image" class="img-responsive img-rounded" >
+                {% endif %}
+                <br>
+                <a href="{{url_for('deleteImage', category_name=item.category.name, item_name=item.name)}}">Delete Image</a>
+            </div>
+            <div class="col-md-9">
+                <form method="post">
+                    <h2>Change Image</h2>
+                    <p>Link to new image:</p>
+                    <input type="text" maxlength="1000" class="form-control" name="image">
+                    <br>
+                    <button type="submit" class="btn btn-default">Save</button>
+                    <a href="{{url_for('showItem', category_name=item.category.name, item_name=item.name)}}">
+                        <button type="button" class="btn btn-default">Cancel</button>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

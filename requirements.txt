@@ -1,0 +1,17 @@
+altgraph
+bdist-mpkg
+click
+Django
+SqlAlchemy
+oauth2client
+requests
+Flask
+FontTools
+gunicorn
+httplib2
+itsdangerous
+Jinja
+lpthw.web
+macholib
+MarkupSafe
+twilio
